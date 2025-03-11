@@ -118,15 +118,22 @@
             font-family: 'Noto Sans JP', sans-serif;
             font-weight: 400;
             font-size: 14px;
-            line-height: 100%;
-            letter-spacing: 0%;
             color: #F90A0A;
             padding: 5px 10px;
             border-radius: 5px;
-            margin-top: 10px;
-            display: none;
+            position: absolute; 
+            top: 0;
+            left: 0;
+            opacity: 0; 
+            transition: opacity 0.3s ease-in-out; 
+        }
+
+        .error-container {
+            height: 25px; 
+            position: relative; 
             margin-left: 150px;
         }
+
     </style>
 </head>
 <body>
@@ -148,24 +155,80 @@
         </div>
         <div class="button-group">
             <button class="button login-btn" onclick="validateLogin()">Login</button>
-            <button class="button clear-btn" >Clear</button>
+            <button class="button clear-btn" onclick="clearFields()">Clear</button>
         </div>
-        <p class="error-message" id="error-message">※ Tên đăng nhập hoặc mật khẩu lỗi. Vui lòng thử lại !</p>
+        <div class="error-container">
+            <p class="error-message" id="error-message">※ Tên đăng nhập hoặc mật khẩu lỗi. Vui lòng thử lại!</p>
+        </div>
     </div>
 
     <script>
         function validateLogin() {
-            const username = document.getElementById("username").value;
-            const password = document.getElementById("password").value;
-            const errorMessage = document.getElementById("error-message");
-            
-            if (username === "" || password === "") {
-                errorMessage.style.display = "block";
-            } else {
-                errorMessage.style.display = "none";
-                alert("Đăng nhập thành công!");
+            const username = document.getElementById("username");
+            const password = document.getElementById("password");
+            // const errorMessage = document.getElementById("error-message");
+
+            const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
+            // Kiểm tra tên đăng nhập
+            if (username.value.trim() === "") {
+                showError("※ Vui lòng nhập tên đăng nhập!", username); 
+                return;
             }
+            if (username.value.length < 5) {
+                showError("※ Tên đăng nhập phải có ít nhất 5 ký tự!", username);
+                return;
+            }
+
+            // Kiểm tra mật khẩu
+            if (password.value.trim() === "") {
+                showError("※ Vui lòng nhập mật khẩu!", password);
+                return;
+            }
+            if (!passwordRegex.test(password.value)) {
+                showError("※ Mật khẩu phải có ít nhất 8 ký tự, gồm chữ hoa, số và ký tự đặc biệt!", password);
+                return;
+            }
+
+            // Nếu nhập đúng, ẩn lỗi và thông báo đăng nhập thành công
+            hideError();
+            alert("Đăng nhập thành công!");
         }
-    </script>
+
+        // Hàm hiển thị lỗi và focus vào ô bị lỗi
+        function showError(message, element) {
+            const errorMessage = document.getElementById("error-message");
+            errorMessage.textContent = message;
+            errorMessage.style.opacity = "1";
+            element.focus();
+        }
+
+        // Hàm ẩn lỗi
+        function hideError() {
+            const errorMessage = document.getElementById("error-message");
+            errorMessage.style.opacity = "0";
+        }
+
+        // Hàm xóa nội dung nhập liệu và lỗi
+        function clearFields() {
+            document.getElementById("username").value = "";
+            document.getElementById("password").value = "";
+            hideError();
+        }
+
+    </script>       
 </body>
 </html>
+
+<!-- 
+Yêu cầu Validate:
+Tên đăng nhập:
+
+Không được để trống.
+Phải có ít nhất 5 ký tự.
+Không chứa khoảng trắng ở đầu và cuối.
+Mật khẩu:
+
+Không được để trống.
+Phải có ít nhất 8 ký tự.
+Phải chứa ít nhất một chữ cái viết hoa, một chữ số và một ký tự đặc biệt (@, #, $, etc.) -->
