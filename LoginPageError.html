@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng Nhập Lỗi</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            width: 100vw;
+            height: 100vh;
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Noto Sans JP', sans-serif;
+            position: relative;
+        }
+        .header {
+            width: 100vw;
+            height: 75px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: #007EC6;
+            display: flex;
+            align-items: center;
+            padding-left: 42px;
+        }
+        .header-text {
+            font-weight: 700;
+            font-size: 40px;
+            color: #FFFFFF;
+        }
+        .header-subtext {
+            font-weight: 400;
+            font-size: 24px;
+            color: #FFFFFF;
+            margin-left: 35px;
+        }
+        .main-text {
+            font-weight: 700;
+            font-size: 56px;
+            color: #007EC6;
+            margin-bottom: 30px;
+        }
+        .form-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .form-group {
+            display: flex;
+            align-items: center;
+        }
+        .form-group label {
+            font-family: 'Noto Sans JP', sans-serif;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 100%;
+            letter-spacing: 0%;
+            width: 150px;
+            text-align: right;
+            margin-right: 10px;
+            white-space: nowrap;
+        }
+        .form-group label span {
+            color: red;
+        }
+        .input-field {
+            width: 350px;
+            height: 40px;
+            font-size: 16px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .input-field::placeholder {
+            font-family: 'Noto Sans JP', sans-serif;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 100%;
+            letter-spacing: 0%;
+            color: #999;
+        }
+        .button-group {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            width: 510px;
+        }
+        .button {
+            width: 160px;
+            height: 45px;
+            font-family: 'Noto Sans JP', sans-serif;
+            font-weight: 700;
+            font-size: 16px;
+            line-height: 100%;
+            letter-spacing: 0%;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            color: white;
+        }
+        .login-btn {
+            background-color: #007EC6;
+            margin-left: 160px;
+        }
+        .clear-btn {
+            background-color: #E2005C;
+        }
+        .error-message {
+            font-family: 'Noto Sans JP', sans-serif;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 100%;
+            letter-spacing: 0%;
+            color: #F90A0A;
+            padding: 5px 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            display: none;
+            margin-left: 150px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <span class="header-text">Sanshin</span>
+        <span class="header-subtext">Hệ thống quản lý đơn</span>
+    </div>
+
+    <div class="main-text">Sanshin IT Solution</div>
+
+    <div class="form-container">
+        <div class="form-group">
+            <label for="username">Tên đăng nhập <span>*</span></label>
+            <input type="text" id="username" class="input-field" placeholder="Tên đăng nhập">
+        </div>
+        <div class="form-group">
+            <label for="password">Mật khẩu <span>*</span></label>
+            <input type="password" id="password" class="input-field" placeholder="Mật khẩu">
+        </div>
+        <div class="button-group">
+            <button class="button login-btn" onclick="validateLogin()">Login</button>
+            <button class="button clear-btn" >Clear</button>
+        </div>
+        <p class="error-message" id="error-message">※ Tên đăng nhập hoặc mật khẩu lỗi. Vui lòng thử lại !</p>
+    </div>
+
+    <script>
+        function validateLogin() {
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+            const errorMessage = document.getElementById("error-message");
+            
+            if (username === "" || password === "") {
+                errorMessage.style.display = "block";
+            } else {
+                errorMessage.style.display = "none";
+                alert("Đăng nhập thành công!");
+            }
+        }
+    </script>
+</body>
+</html>
