@@ -53,92 +53,72 @@
             left: 0;
             background: #FFFFFF;
             border-radius: 4px;
-            padding-top: 8px;
-            padding-bottom: 8px;
+            padding: 8px 0;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
         .sidebar-menu li {
             width: 269px;
-            height: 56px; 
-            padding: 0 20px; 
+            height: 56px;
+            padding: 0 20px;
             display: flex;
-            align-items: center; 
-            background: #FFFFFF; 
-            margin-bottom: 4px; 
-            border-radius: 4px; 
+            align-items: center;
+            background: #FFFFFF;
+            margin-bottom: 4px;
+            border-radius: 4px;
         }
         .sidebar-menu li.active {
-            background: #007EC6; 
+            background: #007EC6;
         }
         .sidebar-menu a {
             text-decoration: none;
             color: black;
             font-size: 16px;
-            display: block;
-            font-weight: 600; 
-            display: block; 
-            padding-left: 30px; 
-        }
-        .sidebar-menu li:not(.active):hover {
-            background: rgba(0, 126, 198, 0.1);
+            font-weight: 600;
+            padding-left: 30px;
+            width: 100%;
         }
         .sidebar-menu li.active a {
             color: white;
         }
-
-        /* Container chứa bảng */
+        .sidebar-menu li:not(.active):hover {
+            background: rgba(0, 126, 198, 0.1);
+        }
+        /* Bảng */
         .table-container {
-            width: 100%; 
-            max-width: 80%; 
-            height: auto; 
+            width: 100%;
+            max-width: 80%;
             position: absolute;
             top: 118px;
             left: 317px;
-            padding: 0; 
-            border-radius: 0; 
-            box-shadow: none; 
         }
-
-        /* Bảng */
         .custom-table {
             width: 100%;
             border-collapse: collapse;
             font-size: 16px;
-            background: none;
         }
-
-        /* Tiêu đề bảng */
         .custom-table thead {
-            background: #f1f1f1; 
+            background: #f1f1f1;
             font-weight: bold;
         }
-
-        /* Dòng tiêu đề */
-        .custom-table th {
+        .custom-table th, .custom-table td {
             text-align: left;
             padding: 12px;
             border: 1px solid #ddd;
         }
-
-        /* Dòng dữ liệu */
-        .custom-table td {
-            padding: 12px;
-            border: 1px solid #ddd;
-        }
-
         .status {
             font-weight: bold;
-            color: black;
         }
-
     </style>
 </head>
 <body>
+
+    <!-- Header -->
     <div class="header">
         <span class="header-text">Sanshin</span>
         <span class="header-subtext">Hệ thống quản lý đơn</span>
     </div>
 
+    <!-- Sidebar -->
     <div class="sidebar">
         <ul class="sidebar-menu">
             <li class="active"><a href="#">Dashboard</a></li>
@@ -148,6 +128,7 @@
         </ul>
     </div>
 
+    <!-- Bảng dữ liệu -->
     <div class="table-container">
         <table class="custom-table">
             <thead>
@@ -166,7 +147,7 @@
     </div>
 
     <script>
-        
+        // Dữ liệu mẫu
         const data = Array(16).fill({
             user: "Nguyễn Văn A",
             type: "Xin nghỉ phép",
@@ -175,11 +156,11 @@
             dutyDate: "2025-01-03",
             description: "Xin nghỉ đi đám cưới"
         });
-    
+
         // Lấy phần tử tbody
         const tableBody = document.getElementById("table-body");
-    
-        // Sử dụng forEach để thêm từng hàng vào bảng
+
+        // Thêm dữ liệu vào bảng
         data.forEach((item, index) => {
             const row = `
                 <tr>
@@ -189,7 +170,7 @@
                     <td>${item.date}</td>
                     <td class="status">${item.status}</td>
                     <td>${item.dutyDate}</td>
-                    <td class="status">${item.description}</td>
+                    <td>${item.description}</td>
                 </tr>
             `;
             tableBody.innerHTML += row;
