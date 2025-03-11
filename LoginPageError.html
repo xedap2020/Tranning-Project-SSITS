@@ -134,6 +134,15 @@
             margin-left: 150px;
         }
 
+        .input-error {
+            border: 2px solid #F90A0A !important;
+            outline: none;
+        }
+
+        .input-error:focus {
+            border: 2px solid #F90A0A !important;
+        }
+
     </style>
 </head>
 <body>
@@ -147,11 +156,11 @@
     <div class="form-container">
         <div class="form-group">
             <label for="username">Tên đăng nhập <span>*</span></label>
-            <input type="text" id="username" class="input-field" placeholder="Tên đăng nhập">
+            <input type="text" id="username" class="input-field" placeholder="Tên đăng nhập" spellcheck="false">
         </div>
         <div class="form-group">
             <label for="password">Mật khẩu <span>*</span></label>
-            <input type="password" id="password" class="input-field" placeholder="Mật khẩu">
+            <input type="password" id="password" class="input-field" placeholder="Mật khẩu" spellcheck="false">
         </div>
         <div class="button-group">
             <button class="button login-btn" onclick="validateLogin()">Login</button>
@@ -166,13 +175,17 @@
         function validateLogin() {
             const username = document.getElementById("username");
             const password = document.getElementById("password");
-            // const errorMessage = document.getElementById("error-message");
+            const errorMessage = document.getElementById("error-message");
 
             const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
 
+            // Xóa lỗi cũ trước khi kiểm tra
+            username.classList.remove("input-error");
+            password.classList.remove("input-error");
+
             // Kiểm tra tên đăng nhập
             if (username.value.trim() === "") {
-                showError("※ Vui lòng nhập tên đăng nhập!", username); 
+                showError("※ Vui lòng nhập tên đăng nhập!", username);
                 return;
             }
             if (username.value.length < 5) {
@@ -190,23 +203,27 @@
                 return;
             }
 
-            // Nếu nhập đúng, ẩn lỗi và thông báo đăng nhập thành công
             hideError();
             alert("Đăng nhập thành công!");
         }
 
-        // Hàm hiển thị lỗi và focus vào ô bị lỗi
+        // Hàm hiển thị lỗi, focus vào ô nhập lỗi và thêm viền đỏ
         function showError(message, element) {
             const errorMessage = document.getElementById("error-message");
             errorMessage.textContent = message;
-            errorMessage.style.opacity = "1";
+            errorMessage.style.opacity = "1"; 
+
+            element.classList.add("input-error"); 
             element.focus();
         }
 
-        // Hàm ẩn lỗi
+        // Hàm ẩn lỗi và xóa hiệu ứng viền đỏ
         function hideError() {
             const errorMessage = document.getElementById("error-message");
-            errorMessage.style.opacity = "0";
+            errorMessage.style.opacity = "0"; 
+
+            document.getElementById("username").classList.remove("input-error");
+            document.getElementById("password").classList.remove("input-error");
         }
 
         // Hàm xóa nội dung nhập liệu và lỗi
@@ -215,6 +232,22 @@
             document.getElementById("password").value = "";
             hideError();
         }
+
+        // Xóa lỗi ngay khi người dùng nhập đúng
+        document.getElementById("username").addEventListener("input", function () {
+            if (this.value.trim().length >= 5) {
+                this.classList.remove("input-error");
+                hideError();
+            }
+        });
+
+        document.getElementById("password").addEventListener("input", function () {
+            const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+            if (passwordRegex.test(this.value.trim())) {
+                this.classList.remove("input-error");
+                hideError();
+            }
+        });
 
     </script>       
 </body>
