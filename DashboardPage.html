@@ -86,7 +86,7 @@
         /* Bảng */
         .table-container {
             width: 100%;
-            max-width: 80%;
+            max-width: 81%;
             position: absolute;
             top: 118px;
             left: 317px;
@@ -133,15 +133,15 @@
         <table class="custom-table">
             <thead>
                 <tr>
-                    <th>STT</th>
-                    <th>Người dùng</th>
-                    <th>Loại đơn</th>
-                    <th>Ngày lập</th>
-                    <th>Trạng thái</th>
-                    <th>Ngày duty</th>
-                    <th>Mô tả</th>
+                    <th style="width: 5.57%;">STT</th>
+                    <th style="width: 10.21%;">Người dùng</th>
+                    <th style="width: 15.88%;">Loại đơn</th>
+                    <th style="width: 10.21%;">Ngày lập</th>
+                    <th style="width: 10.21%;">Trạng thái</th>
+                    <th style="width: 10.02%;">Ngày duty</th>
+                    <th style="width: 37.89%;">Mô tả</th>
                 </tr>
-            </thead>
+            </thead>            
             <tbody id="table-body"></tbody>
         </table>
     </div>
@@ -170,7 +170,7 @@
                     <td>${item.date}</td>
                     <td class="status">${item.status}</td>
                     <td>${item.dutyDate}</td>
-                    <td>${item.description}</td>
+                    <td class="status">${item.description}</td>
                 </tr>
             `;
             tableBody.innerHTML += row;
