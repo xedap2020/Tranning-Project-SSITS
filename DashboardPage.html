@@ -52,7 +52,7 @@
             top: 76px;
             left: 0;
             background: #FFFFFF;
-            border-radius: 4px;
+            border-radius: 0px;
             padding: 8px 0;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
@@ -64,7 +64,7 @@
             align-items: center;
             background: #FFFFFF;
             margin-bottom: 4px;
-            border-radius: 4px;
+            border-radius: 0px;
         }
         .sidebar-menu li.active {
             background: #007EC6;
@@ -93,8 +93,12 @@
         }
         .custom-table {
             width: 100%;
-            border-collapse: collapse;
+            border-collapse: separate;
             font-size: 16px;
+            border-spacing: 0;
+            border-radius: 6px;
+            overflow: hidden; 
+            border: 1px solid #ddd;
         }
         .custom-table thead {
             background: #f1f1f1;
