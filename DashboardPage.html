@@ -11,50 +11,52 @@
             box-sizing: border-box;
         }
         body {
-            width: 100vw;
-            height: 100vh;
-            background-color: white;
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #f9f9f9;
             display: flex;
             flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Noto Sans JP', sans-serif;
-            position: relative;
+            height: 100vh;
         }
         .header {
-            width: 100vw;
+            width: 100%;
             height: 75px;
-            position: fixed;
-            top: 0;
-            left: 0;
             background: #007EC6;
             display: flex;
             align-items: center;
             padding-left: 42px;
+            color: white;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
         }
+
         .header-text {
             font-weight: 700;
             font-size: 40px;
-            color: #FFFFFF;
         }
+
         .header-subtext {
             font-weight: 400;
             font-size: 24px;
-            color: #FFFFFF;
             margin-left: 35px;
         }
         .sidebar {
             width: 269px;
-            height: 100vh;
+            height: 948px;
             min-width: 112px;
             max-width: 280px;
             position: fixed;
             top: 76px;
             left: 0;
-            background: #FFFFFF;
-            border-radius: 0px;
-            padding: 8px 0;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            background: var(--Schemes-Surface-Container-Lowest, #FFFFFF);
+            border-radius: 4px;
+            padding-top: 8px;
+            padding-bottom: 8px;
+            box-shadow: 0px 2px 6px 2px #00000026, 0px 1px 2px 0px #0000004D;
+        }
+        .sidebar-menu {
+            list-style: none;
         }
         .sidebar-menu li {
             width: 269px;
@@ -64,50 +66,66 @@
             align-items: center;
             background: #FFFFFF;
             margin-bottom: 4px;
-            border-radius: 0px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
         }
         .sidebar-menu li.active {
             background: #007EC6;
+            color: white;
         }
-        .sidebar-menu a {
+        .sidebar-menu li:hover {
+            background: rgba(0, 126, 198, 0.1);
+        }
+        .sidebar-menu li a {
             text-decoration: none;
             color: black;
-            font-size: 16px;
-            font-weight: 600;
-            padding-left: 30px;
             width: 100%;
         }
         .sidebar-menu li.active a {
             color: white;
         }
-        .sidebar-menu li:not(.active):hover {
-            background: rgba(0, 126, 198, 0.1);
+        .content {
+            margin-left: 300px;
+            margin-top: 100px;
+            padding: 0 20px;
+            flex: 1;
         }
-        /* Bảng */
         .table-container {
             width: 100%;
-            max-width: 81%;
-            position: absolute;
-            top: 118px;
-            left: 317px;
+            margin-top: 20px;
         }
         .custom-table {
-            width: 100%;
+            width: 98.5%;
             border-collapse: separate;
-            font-size: 16px;
-            border-spacing: 0;
             border-radius: 6px;
-            overflow: hidden; 
-            border: 1px solid #ddd;
-        }
-        .custom-table thead {
-            background: #f1f1f1;
-            font-weight: bold;
+            border: 1px solid #B9B9B9;
+            border-spacing: 0;
+            background-color: #FFFFFF;
         }
         .custom-table th, .custom-table td {
-            text-align: left;
             padding: 12px;
-            border: 1px solid #ddd;
+            text-align: left;
+            border: 1px solid #B9B9B9;
+        }
+        .custom-table th:first-child {
+            border-top-left-radius: 5px;
+        }
+
+        .custom-table th:last-child {
+            border-top-right-radius: 5px;
+        }
+
+        .custom-table tr:last-child td:first-child {
+            border-bottom-left-radius: 5px;
+        }
+
+        .custom-table tr:last-child td:last-child {
+            border-bottom-right-radius: 5px;
+        }
+        .custom-table th {
+            background-color: rgba(0, 0, 0, 0.06);
+            font-weight: bold;
         }
         .status {
             font-weight: bold;
@@ -116,13 +134,11 @@
 </head>
 <body>
 
-    <!-- Header -->
     <div class="header">
         <span class="header-text">Sanshin</span>
         <span class="header-subtext">Hệ thống quản lý đơn</span>
     </div>
 
-    <!-- Sidebar -->
     <div class="sidebar">
         <ul class="sidebar-menu">
             <li class="active"><a href="#">Dashboard</a></li>
@@ -132,27 +148,28 @@
         </ul>
     </div>
 
-    <!-- Bảng dữ liệu -->
-    <div class="table-container">
-        <table class="custom-table">
-            <thead>
-                <tr>
-                    <th style="width: 5.57%;">STT</th>
-                    <th style="width: 10.21%;">Người dùng</th>
-                    <th style="width: 15.88%;">Loại đơn</th>
-                    <th style="width: 10.21%;">Ngày lập</th>
-                    <th style="width: 10.21%;">Trạng thái</th>
-                    <th style="width: 10.02%;">Ngày duty</th>
-                    <th style="width: 37.89%;">Mô tả</th>
-                </tr>
-            </thead>            
-            <tbody id="table-body"></tbody>
-        </table>
+    <div class="content">
+        <div class="table-container">
+            <table class="custom-table">
+                <thead>
+                    <tr>
+                        <th style="width: 5.57%;">STT</th>
+                        <th style="width: 10.21%;">Người dùng</th>
+                        <th style="width: 15.88%;">Loại đơn</th>
+                        <th style="width: 10.21%;">Ngày lập</th>
+                        <th style="width: 10.21%;">Trạng thái</th>
+                        <th style="width: 10.02%;">Ngày duty</th>
+                        <th style="width: 37.89%;">Mô tả</th>
+                    </tr>
+                </thead>
+                <tbody id="table-body">
+                </tbody>
+            </table>
+        </div>
     </div>
 
     <script>
-        // Dữ liệu mẫu
-        const data = Array(16).fill({
+        const data = Array(30).fill({
             user: "Nguyễn Văn A",
             type: "Xin nghỉ phép",
             date: "2025-01-02",
@@ -161,14 +178,13 @@
             description: "Xin nghỉ đi đám cưới"
         });
 
-        // Lấy phần tử tbody
         const tableBody = document.getElementById("table-body");
 
-        // Thêm dữ liệu vào bảng
-        data.forEach((item, index) => {
+        for (let i = 0; i < data.length; i++) {
+            const item = data[i];
             const row = `
                 <tr>
-                    <td>${1}</td>
+                    <td>${i + 1}</td>
                     <td>${item.user}</td>
                     <td>${item.type}</td>
                     <td>${item.date}</td>
@@ -178,7 +194,7 @@
                 </tr>
             `;
             tableBody.innerHTML += row;
-        });
+        }
     </script>
 
 </body>

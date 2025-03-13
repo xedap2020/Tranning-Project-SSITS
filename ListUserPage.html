@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản Lý Người Dùng</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            width: 100vw;
+            height: 100vh;
+            background: #FFFFFF; /* Nền trắng */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .header {
+            width: 100%; /* Chiếm toàn bộ chiều rộng */
+            height: 7.32vh; /* Tỷ lệ tương đương với 75px */
+            background: #007EC6; /* Màu xanh */
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+        .logo-text {
+            position: absolute;
+            width: 11vw; /* Tương đương 158px */
+            height: 4.7vh; /* Tương đương 48px */
+            top: 0.78vh; /* Tương đương 8px */
+            left: 1.8vw; /* Tương đương 26px */
+            
+            font-family: 'Noto Sans JP', sans-serif;
+            font-weight: 700;
+            font-size: min(2.5vw, 32px); /* Giảm kích thước xuống */
+            line-height: 100%;
+            color: #FFFFFF; /* Màu chữ trắng */
+        }
+        .sub-text {
+            position: absolute;
+            width: 16.67vw; /* Tương đương 240px */
+            height: 2.83vh; /* Tương đương 29px */
+            top: 2.54vh; /* Tương đương 26px */
+            left: 16.18vw; /* Tương đương 233px */
+            
+            font-family: 'Noto Sans JP', sans-serif;
+            font-weight: 400;
+            font-size: min(1.67vw, 22px); /* Tỷ lệ chuẩn để không bị to quá */
+            line-height: 100%;
+            color: #FFFFFF; /* Màu chữ trắng */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Thanh Header -->
+    <div class="header">
+        <span class="logo-text">Sanshin</span>
+        <span class="sub-text">Hệ thống quản lý đơn</span>
+    </div>
+
+</body>
+</html>
