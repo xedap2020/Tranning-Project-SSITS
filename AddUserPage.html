@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang 1920x1080</title>
+    <style>
+        /* Định dạng toàn bộ trang */
+        body {
+            width: 1920px;
+            height: 1080px;
+            background: rgba(255, 255, 255, 1);
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            position: fixed;
+        }
+
+        .header {
+            width: 1920px;
+            height: 75px;
+            background: rgba(0, 126, 198, 1);
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+
+        .header-text {
+            width: 158px;
+            height: 48px;
+            position: absolute;
+            top: 8px;
+            left: 26px;
+            font-family: 'Noto Sans JP', sans-serif;
+            font-weight: 700;
+            font-size: 40px;
+            line-height: 100%;
+            letter-spacing: 0%;
+            color: rgba(255, 255, 255, 1); 
+        }
+
+        .sub-header-text {
+            width: 240px;
+            height: 29px;
+            position: absolute;
+            top: 26px;
+            left: 233px;
+            font-family: 'Noto Sans JP', sans-serif;
+            font-weight: 400;
+            font-size: 24px;
+            line-height: 100%;
+            letter-spacing: 0%;
+            color: rgba(255, 255, 255, 1);
+        }
+
+        /* Thanh Sidebar */
+        .sidebar {
+            width: 269px;
+            height: 1005px;
+            min-width: 112px;
+            max-width: 280px;
+            position: fixed;
+            top: 76px;
+            left: 0;
+            background: rgba(255, 255, 255, 1);
+            border-radius: 4px;
+            padding-top: 8px;
+            padding-bottom: 8px;
+            box-shadow: 0px 2px 6px 2px rgba(0, 0, 0, 0.15), 
+                        0px 1px 2px 0px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Danh sách menu */
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        /* Mỗi item trong Sidebar */
+        .sidebar li {
+            height: 56px;
+            padding-left: 20px;
+            display: flex;
+            align-items: center;
+            font-size: 18px;
+            font-weight: 700;
+            color: black;
+            cursor: pointer;
+        }
+
+        /* Khi item active */
+        .sidebar li.active {
+            background-color: rgba(0, 126, 198, 1);
+            color: white;
+            font-weight: 700;
+        }
+
+        .add-user-text {
+            width: 144px;
+            height: 17px;
+            position: absolute;
+            top: 96px;
+            left: 296px;
+            font-family: 'Noto Sans JP', sans-serif;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 100%;
+            letter-spacing: 0%;
+            color: rgba(0, 0, 0, 1);
+            background: transparent;
+        }
+
+        .frame {
+            width: 613px;
+            height: 40px;
+            background: rgba(255, 255, 255, 1);
+            position: absolute;
+        }
+
+        /* Vị trí từng Frame */
+        .frame-1 { top: 171px; left: 389px; }
+        .frame-2 { top: 233px; left: 389px; }
+        .frame-3 { top: 295px; left: 389px; }
+        .frame-4 { top: 357px; left: 389px; }
+        .frame-5 { top: 419px; left: 389px; }
+        .frame-6 { top: 481px; left: 389px; }
+        .frame-7 { top: 543px; left: 389px; }
+
+        .input-container {
+            display: flex;
+            align-items: center;
+            position: absolute;
+            width: 100%;
+        }
+
+        .frame-1 .input-container { top: 10px; left: 10px; }
+        .frame-2 .input-container { top: 10px; left: 10px; }
+        .frame-3 .input-container { top: 10px; left: 10px; } /* Mật khẩu */
+        .frame-4 .input-container { top: 10px; left: 10px; } /* Email */
+        .frame-5 .input-container { top: 10px; left: 10px; } /* Ngày sinh */
+        .frame-6 .input-container { top: 10px; left: 10px; }
+        .frame-7 .input-container { top: 10px; left: 10px; }
+
+        .username-container {
+            width: 120px; /* Đảm bảo label có cùng độ rộng */
+            font-size: 14px;
+            font-weight: 400;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .required {
+            color: rgba(189, 1, 1, 1);
+            font-size: 16px;
+            font-weight: 700;
+            margin-left: 3px;
+            position: relative;
+            top: 4px; /* Dịch xuống một chút */
+        }
+        
+        .input-text {
+            width: 480px;
+            height: 40px;
+            border-radius: 4px;
+            border: 1px solid rgba(204, 204, 204, 1);
+            background: rgba(255, 255, 255, 0.5);
+            padding-left: 10px;
+            font-size: 14px;
+            font-family: 'Noto Sans JP', sans-serif;
+            outline: none;
+            margin-left: 10px; 
+        }
+
+        .date-input {
+            width: 189px;
+            height: 40px;
+            margin-left: 8px;
+            border-radius: 4px;
+            border: 1px solid rgba(204, 204, 204, 1);
+            background: rgba(255, 255, 255, 0.5);
+            padding-left: 10px;
+            font-size: 14px;
+            font-family: 'Noto Sans JP', sans-serif;
+            outline: none;
+        }
+
+        .input-select {
+            width: 240px; 
+            height: 40px;
+            border-radius: 4px;
+            border: 1px solid rgba(204, 204, 204, 1);
+            background: rgba(255, 255, 255, 0.5);
+            padding-left: 10px;
+            font-size: 14px;
+            font-family: 'Noto Sans JP', sans-serif;
+            outline: none;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-text">Sanshin</div>
+        <div class="sub-header-text">Hệ thống quản lý đơn</div>
+    </div>
+
+    <div class="sidebar">
+        <ul>
+            <li>Dashboard</li>
+            <li class="active">Quản lý người dùng</li>
+            <li>Quản lý đơn</li>
+            <li>Đăng xuất</li>
+        </ul>
+    </div>
+
+    <div class="frame frame-1">
+        <div class="input-container">
+            <div class="username-container">
+                <span class="username-text">Tên đăng nhập</span>
+                <span class="required">*</span>
+            </div>
+            <input type="text" class="input-text">
+        </div>
+    </div>
+    
+    <!-- Frame 2: Tên người dùng -->
+    <div class="frame frame-2">
+        <div class="input-container">
+            <div class="username-container">
+                <span class="username-text">Tên người dùng</span>
+                <span class="required">*</span>
+            </div>
+            <input type="text" class="input-text">
+        </div>
+    </div>
+    
+    <div class="frame frame-3">
+        <div class="input-container">
+            <div class="username-container">
+                <span class="username-text">Mật khẩu</span>
+                <span class="required">*</span>
+            </div>
+            <input type="password" class="input-text">
+        </div>
+    </div>
+
+    <div class="frame frame-4">
+        <div class="input-container">
+            <div class="username-container">
+                <span class="username-text">Email</span>
+                <span class="required"></span>
+            </div>
+            <input type="email" class="input-text">
+        </div>
+    </div>
+
+    <div class="frame frame-5">
+        <div class="input-container">
+            <div class="username-container">
+                <span class="username-text">Ngày sinh</span>
+            </div>
+            <input type="date" class="input-text date-input">
+        </div>
+    </div>
+
+    <div class="frame frame-6">
+        <div class="input-container">
+            <div class="username-container">
+                <span class="username-text">Loại người dùng</span>
+                <span class="required">*</span>
+            </div>
+            <select class="input-select">
+                <option>Value</option>
+            </select>
+        </div>
+    </div>
+    
+    <!-- Frame 7: Phòng ban -->
+    <div class="frame frame-7">
+        <div class="input-container">
+            <div class="username-container">
+                <span class="username-text">Phòng ban</span>
+                <span class="required">*</span>
+            </div>
+            <select class="input-select">
+                <option>Value</option>
+            </select>
+        </div>
+    </div>
+
+</body>
+</html>
