@@ -105,13 +105,13 @@
           top: 112px;
           left: 314px;
 
-          font-family: 'Noto Sans JP', sans-serif; /* Tạm thay thế Body/Font Family */
-          font-weight: 400; /* Tạm thay thế Body/Font Weight Regular */
-          font-size: 16px; /* Tạm thay thế Body/Size Medium */
+          font-family: 'Noto Sans JP', sans-serif; 
+          font-weight: 400; 
+          font-size: 16px; 
           line-height: 140%;
           letter-spacing: 0%;
           
-          color: rgba(30, 30, 30, 1); /* Màu chữ */
+          color: rgba(30, 30, 30, 1); 
           background: transparent;
       }
         
@@ -139,13 +139,13 @@
       width: 240px;
       height: 16px;
 
-      font-family: 'Noto Sans JP', sans-serif; /* Tạm thay thế Body/Font Family */
-      font-weight: 400; /* Tạm thay thế Body/Font Weight Regular */
-      font-size: 14px; /* Tạm thay thế Body/Size Medium */
+      font-family: 'Noto Sans JP', sans-serif; 
+      font-weight: 400; 
+      font-size: 14px; 
       line-height: 100%;
       letter-spacing: 0%;
 
-      color: rgba(179, 179, 179, 1); /* Màu chữ Placeholder */
+      color: rgba(179, 179, 179, 1); 
       background: transparent;
       text-indent: 8px;
   }
@@ -157,8 +157,8 @@
       top: 103px;
       left: 732px;
 
-      border-radius: 8px; /* Tạm thay thế var(--sds-size-radius-200) */
-      border-width: 1px; /* Tạm thay thế var(--sds-size-stroke-border) */
+      border-radius: 8px; 
+      border-width: 1px; 
       border: none;
 
       background: rgba(255, 119, 0, 1); /* Màu nền */
@@ -173,18 +173,18 @@
       text-align: center;
       cursor: pointer;
 
-      padding: 8px 12px; /* Tạm thay thế var(--sds-size-space-300) */
+      padding: 8px 12px; 
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 4px; /* Tạm thay thế gap: Space/200 */
+      gap: 4px; 
   }
 
   .search-button:hover {
       background: rgba(230, 108, 0, 1);
   }
 
-/* Active Effect */
+
   .search-button:active {
       background: rgba(200, 90, 0, 1);
   }
@@ -433,7 +433,7 @@
   }
 
   .pagination-container {
-    position: absolute; /* Định vị chính xác */
+    position: absolute; 
     width: 489px;
     height: 38px;
     top: 660px;
@@ -444,21 +444,21 @@
     flex-wrap: nowrap; 
 }
 
-/* 📌 Bảng chứa các nút phân trang */
+
 .pagination-table {
     width: 100%;
     height: 100%;
     border-collapse: collapse;
-    background: rgba(255, 255, 255, 1); /* Màu nền trắng */
+    background: rgba(255, 255, 255, 1); 
 }
 
-/* 📌 Ô chứa các nút phân trang */
+
 .pagination-table td {
     text-align: center;
     padding: 4px;
 }
 
-/* 📌 Nút phân trang chung */
+
 .pagination-btn {
     width: 28px;
     height: 28px;
@@ -472,7 +472,7 @@
     cursor: pointer;
 }
 
-/* 📌 Nút "Previous" và "Next" */
+
 .previous, .next {
     width: 84px;
     height: 32px;
@@ -484,19 +484,19 @@
     padding: 0 12px;
 }
 
-/* 📌 Khi Previous bị disabled */
+
 .previous:disabled {
     color: rgba(200, 200, 200, 1);
     cursor: default;
 }
 
-/* 📌 Nút đang chọn (Active) */
+
 .pagination-btn.active {
     background: rgba(0, 0, 0, 1);
     color: white;
 }
 
-/* 📌 Dấu "..." */
+
 .pagination-dots {
     font-size: 14px;
     color: rgba(0, 0, 0, 1);
