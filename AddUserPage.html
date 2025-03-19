@@ -188,6 +188,28 @@
             outline: none;
         }
 
+        .date-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .date-icon {
+            position: absolute;
+            right: 10px;
+            width: 20px; 
+            height: 20px; 
+            cursor: pointer;
+        }
+
+        .input-text.date-input {
+            padding-right: 30px; 
+        }
+
+        .date-input::-webkit-calendar-picker-indicator {
+            display: none;
+        }
+
         .input-select {
             width: 240px; 
             height: 40px;
@@ -277,7 +299,7 @@
                 <span class="username-text">Tên đăng nhập</span>
                 <span class="required">*</span>
             </div>
-            <input type="text" class="input-text" id="username"> 
+            <input type="text" class="input-text" id="username" > 
         </div>
     </div>
     
@@ -288,7 +310,7 @@
                 <span class="username-text">Tên người dùng</span>
                 <span class="required">*</span>
             </div>
-            <input type="text" class="input-text" id="fullname">
+            <input type="text" class="input-text" id="fullname" >
         </div>
     </div>
     
@@ -298,7 +320,7 @@
                 <span class="username-text">Mật khẩu</span>
                 <span class="required">*</span>
             </div>
-            <input type="password" class="input-text" id="password">
+            <input type="password" class="input-text" id="password" >
         </div>
     </div>
 
@@ -308,7 +330,7 @@
                 <span class="username-text">Email</span>
                 <span class="required"></span>
             </div>
-            <input type="email" class="input-text" id="email">
+            <input type="email" class="input-text" id="email" >
         </div>
     </div>
 
@@ -317,7 +339,11 @@
             <div class="username-container">
                 <span class="username-text">Ngày sinh</span>
             </div>
-            <input type="date" class="input-text date-input" id="dob">
+            <div class="date-container">
+                <input type="date" class="date-input" id="dob" >
+                <!-- Thêm icon -->
+                <img src="path_to_your_icon.svg" class="date-icon" alt="Date Icon">
+            </div>
         </div>
     </div>
 
@@ -327,7 +353,7 @@
                 <span class="username-text">Loại người dùng</span>
                 <span class="required">*</span>
             </div>
-            <select class="input-select" id="userType">
+            <select class="input-select" id="userType" >
                 <option></option>
                 <option>Value 1</option>
                 <option>Value 2</option>
@@ -343,7 +369,7 @@
                 <span class="username-text">Phòng ban</span>
                 <span class="required">*</span>
             </div>
-            <select class="input-select" id="department">
+            <select class="input-select" id="department" >
                 <option></option>
                 <option>Value 1</option>
                 <option>Value 2</option>
@@ -358,9 +384,16 @@
     </div>
 
     <script>
+
+        document.querySelector('.date-icon').addEventListener('click', function() {
+            document.getElementById('dob').showPicker();
+        });
+
         let formData = []; 
-        // Xử lý nút "Tiếp theo"
+
+        // Lắng nghe sự kiện click trên nút "Tiếp theo"
         document.querySelector('.next-btn').addEventListener('click', function() {
+            // Lấy tất cả các trường input và select
             const fields = [
                 document.getElementById('username'),
                 document.getElementById('fullname'),
@@ -372,26 +405,23 @@
             ];
 
             fields.forEach(function(field) {
-                if (field.value.trim() === '') {
-                    field.style.backgroundColor = 'rgba(204, 204, 204, 0.5)';
-                } else {
-                    field.style.backgroundColor = ''; 
-                }
+                field.disabled = true; 
+                field.style.backgroundColor = 'rgba(204, 204, 204, 0.5)'; 
             });
 
-            // Lưu lại dữ liệu đã nhập (ví dụ lưu vào biến)
             formData = fields.map(field => field.value);
-    
-            // Chuyển đổi các nút "Tiếp theo" và "Xóa trống" thành "Lưu lại" và "Quay lại"
+
+            // Chuyển nút "Tiếp theo" thành "Lưu lại" và "Xóa trống" thành "Quay lại"
             document.querySelector('.next-btn').textContent = 'Lưu lại';
             document.querySelector('.clear-btn').textContent = 'Quay lại';
-    
-            // Sự kiện khi nhấn "Quay lại"
+
+            // Lắng nghe sự kiện click trên nút "Quay lại"
             document.querySelector('.clear-btn').addEventListener('click', function() {
-                // Chuyển lại các nút về trạng thái ban đầu (Tiếp theo, Xóa trống)
+                // Khôi phục lại các nút về trạng thái ban đầu: Tiếp theo và Xóa trống
                 document.querySelector('.next-btn').textContent = 'Tiếp theo';
                 document.querySelector('.clear-btn').textContent = 'Xóa trống';
 
+                // Lấy các trường cần khôi phục
                 const fields = [
                     document.getElementById('username'),
                     document.getElementById('fullname'),
@@ -402,20 +432,16 @@
                     document.getElementById('department')
                 ];
 
-                fields.forEach(function(field) {
-                    if (field.value.trim() === '') {
-                        field.style.backgroundColor = '';
-                    } else {
-                        field.style.backgroundColor = ''; 
-                    }
-                });
-    
-                // Giữ dữ liệu đã nhập lại vào các trường
+
                 fields.forEach((field, index) => {
                     field.value = formData[index]; 
                 });
 
-                // Xử lý nút "Xóa trống" sau khi quay lại
+                fields.forEach(function(field) {
+                    field.disabled = false; 
+                    field.style.backgroundColor = ''; 
+                });
+
                 document.querySelector('.clear-btn').addEventListener('click', function() {
                     if (document.querySelector('.clear-btn').textContent === 'Xóa trống') {
                         fields.forEach(function(field) {
@@ -424,9 +450,11 @@
                         });
                     }
                 });
+                
             });
+
         });
-    
+
         // Xử lý nút "Xóa trống"
         document.querySelector('.clear-btn').addEventListener('click', function() {
             // Nếu đang ở trạng thái "Xóa trống", thực hiện xóa dữ liệu
@@ -447,7 +475,7 @@
                 });
             }
         });
-
+        
     </script>
 
 </body>
