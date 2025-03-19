@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Màn hình thêm mới người dùng</title>
     <style>
-        /* Định dạng toàn bộ trang */
+
         body {
             width: 1920px;
             height: 1080px;
@@ -55,7 +55,6 @@
             color: rgba(255, 255, 255, 1);
         }
 
-        /* Thanh Sidebar */
         .sidebar {
             width: 269px;
             height: 1005px;
@@ -72,14 +71,12 @@
                         0px 1px 2px 0px rgba(0, 0, 0, 0.3);
         }
 
-        /* Danh sách menu */
         .sidebar ul {
             list-style: none;
             padding: 0;
             margin: 0;
         }
 
-        /* Mỗi item trong Sidebar */
         .sidebar li {
             height: 56px;
             padding-left: 20px;
@@ -91,7 +88,6 @@
             cursor: pointer;
         }
 
-        /* Khi item active */
         .sidebar li.active {
             background-color: rgba(0, 126, 198, 1);
             color: white;
@@ -120,7 +116,6 @@
             position: absolute;
         }
 
-        /* Vị trí từng Frame */
         .frame-1 { top: 171px; left: 389px; }
         .frame-2 { top: 233px; left: 389px; }
         .frame-3 { top: 295px; left: 389px; }
@@ -138,14 +133,14 @@
 
         .frame-1 .input-container { top: 10px; left: 10px; }
         .frame-2 .input-container { top: 10px; left: 10px; }
-        .frame-3 .input-container { top: 10px; left: 10px; } /* Mật khẩu */
-        .frame-4 .input-container { top: 10px; left: 10px; } /* Email */
-        .frame-5 .input-container { top: 10px; left: 10px; } /* Ngày sinh */
+        .frame-3 .input-container { top: 10px; left: 10px; } 
+        .frame-4 .input-container { top: 10px; left: 10px; }
+        .frame-5 .input-container { top: 10px; left: 10px; } 
         .frame-6 .input-container { top: 10px; left: 10px; }
         .frame-7 .input-container { top: 10px; left: 10px; }
 
         .username-container {
-            width: 120px; /* Đảm bảo label có cùng độ rộng */
+            width: 120px; 
             font-size: 14px;
             font-weight: 400;
             display: flex;
@@ -159,7 +154,7 @@
             font-weight: 700;
             margin-left: 3px;
             position: relative;
-            top: 4px; /* Dịch xuống một chút */
+            top: 4px; 
         }
         
         .input-text {
@@ -263,7 +258,6 @@
             color: white;
         }
 
-        /* Thêm hiệu ứng hover cho các nút */
         .next-btn:hover {
             background-color: rgba(0, 126, 198, 0.6);
             transition: background-color 0.3s;
@@ -303,7 +297,6 @@
         </div>
     </div>
     
-    <!-- Frame 2: Tên người dùng -->
     <div class="frame frame-2">
         <div class="input-container">
             <div class="username-container">
@@ -341,7 +334,6 @@
             </div>
             <div class="date-container">
                 <input type="date" class="date-input" id="dob" >
-                <!-- Thêm icon -->
                 <img src="path_to_your_icon.svg" class="date-icon" alt="Date Icon">
             </div>
         </div>
@@ -362,7 +354,6 @@
         </div>
     </div>
     
-    <!-- Frame 7: Phòng ban -->
     <div class="frame frame-7">
         <div class="input-container">
             <div class="username-container">
@@ -393,7 +384,6 @@
 
         // Lắng nghe sự kiện click trên nút "Tiếp theo"
         document.querySelector('.next-btn').addEventListener('click', function() {
-            // Lấy tất cả các trường input và select
             const fields = [
                 document.getElementById('username'),
                 document.getElementById('fullname'),
@@ -417,11 +407,9 @@
 
             // Lắng nghe sự kiện click trên nút "Quay lại"
             document.querySelector('.clear-btn').addEventListener('click', function() {
-                // Khôi phục lại các nút về trạng thái ban đầu: Tiếp theo và Xóa trống
                 document.querySelector('.next-btn').textContent = 'Tiếp theo';
                 document.querySelector('.clear-btn').textContent = 'Xóa trống';
-
-                // Lấy các trường cần khôi phục
+                
                 const fields = [
                     document.getElementById('username'),
                     document.getElementById('fullname'),
@@ -450,7 +438,7 @@
                         });
                     }
                 });
-                
+
             });
 
         });

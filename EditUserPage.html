@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Màn hình thêm mới người dùng</title>
     <style>
-        /* Định dạng toàn bộ trang */
+
         body {
             width: 1920px;
             height: 1080px;
@@ -55,7 +55,6 @@
             color: rgba(255, 255, 255, 1);
         }
 
-        /* Thanh Sidebar */
         .sidebar {
             width: 269px;
             height: 1005px;
@@ -72,14 +71,12 @@
                         0px 1px 2px 0px rgba(0, 0, 0, 0.3);
         }
 
-        /* Danh sách menu */
         .sidebar ul {
             list-style: none;
             padding: 0;
             margin: 0;
         }
 
-        /* Mỗi item trong Sidebar */
         .sidebar li {
             height: 56px;
             padding-left: 20px;
@@ -91,14 +88,13 @@
             cursor: pointer;
         }
 
-        /* Khi item active */
         .sidebar li.active {
             background-color: rgba(0, 126, 198, 1);
             color: white;
             font-weight: 700;
         }
 
-        .edit-user-text {
+        .add-user-text {
             width: 144px;
             height: 17px;
             position: absolute;
@@ -120,7 +116,6 @@
             position: absolute;
         }
 
-        /* Vị trí từng Frame */
         .frame-1 { top: 171px; left: 389px; }
         .frame-2 { top: 233px; left: 389px; }
         .frame-3 { top: 295px; left: 389px; }
@@ -138,14 +133,14 @@
 
         .frame-1 .input-container { top: 10px; left: 10px; }
         .frame-2 .input-container { top: 10px; left: 10px; }
-        .frame-3 .input-container { top: 10px; left: 10px; } /* Mật khẩu */
-        .frame-4 .input-container { top: 10px; left: 10px; } /* Email */
-        .frame-5 .input-container { top: 10px; left: 10px; } /* Ngày sinh */
+        .frame-3 .input-container { top: 10px; left: 10px; } 
+        .frame-4 .input-container { top: 10px; left: 10px; }
+        .frame-5 .input-container { top: 10px; left: 10px; } 
         .frame-6 .input-container { top: 10px; left: 10px; }
         .frame-7 .input-container { top: 10px; left: 10px; }
 
         .username-container {
-            width: 120px; /* Đảm bảo label có cùng độ rộng */
+            width: 120px; 
             font-size: 14px;
             font-weight: 400;
             display: flex;
@@ -159,7 +154,7 @@
             font-weight: 700;
             margin-left: 3px;
             position: relative;
-            top: 4px; /* Dịch xuống một chút */
+            top: 4px; 
         }
         
         .input-text {
@@ -186,6 +181,28 @@
             font-size: 14px;
             font-family: 'Noto Sans JP', sans-serif;
             outline: none;
+        }
+
+        .date-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .date-icon {
+            position: absolute;
+            right: 10px;
+            width: 20px; 
+            height: 20px; 
+            cursor: pointer;
+        }
+
+        .input-text.date-input {
+            padding-right: 30px; 
+        }
+
+        .date-input::-webkit-calendar-picker-indicator {
+            display: none;
         }
 
         .input-select {
@@ -241,7 +258,6 @@
             color: white;
         }
 
-        /* Thêm hiệu ứng hover cho các nút */
         .next-btn:hover {
             background-color: rgba(0, 126, 198, 0.6);
             transition: background-color 0.3s;
@@ -251,11 +267,11 @@
             background-color: rgba(226, 0, 92, 0.6);
             transition: background-color 0.3s;
         }
-        
+
         #username {
             background: rgba(223, 223, 223, 0.5); 
         }
-        
+
     </style>
 </head>
 <body>
@@ -273,7 +289,7 @@
         </ul>
     </div>
 
-    <div class="edit-user-text">Chỉnh sửa người dùng</div>
+    <div class="add-user-text">Chỉnh sửa người dùng</div>
 
     <div class="frame frame-1">
         <div class="input-container">
@@ -285,14 +301,13 @@
         </div>
     </div>
     
-    <!-- Frame 2: Tên người dùng -->
     <div class="frame frame-2">
         <div class="input-container">
             <div class="username-container">
                 <span class="username-text">Tên người dùng</span>
                 <span class="required">*</span>
             </div>
-            <input type="text" class="input-text" id="fullname">
+            <input type="text" class="input-text" id="fullname" >
         </div>
     </div>
     
@@ -302,7 +317,7 @@
                 <span class="username-text">Mật khẩu</span>
                 <span class="required">*</span>
             </div>
-            <input type="password" class="input-text" id="password">
+            <input type="password" class="input-text" id="password" >
         </div>
     </div>
 
@@ -312,7 +327,7 @@
                 <span class="username-text">Email</span>
                 <span class="required"></span>
             </div>
-            <input type="email" class="input-text" id="email">
+            <input type="email" class="input-text" id="email" >
         </div>
     </div>
 
@@ -321,7 +336,10 @@
             <div class="username-container">
                 <span class="username-text">Ngày sinh</span>
             </div>
-            <input type="date" class="input-text date-input" id="dob">
+            <div class="date-container">
+                <input type="date" class="date-input" id="dob" >
+                <img src="path_to_your_icon.svg" class="date-icon" alt="Date Icon">
+            </div>
         </div>
     </div>
 
@@ -331,7 +349,7 @@
                 <span class="username-text">Loại người dùng</span>
                 <span class="required">*</span>
             </div>
-            <select class="input-select" id="userType">
+            <select class="input-select" id="userType" >
                 <option></option>
                 <option>Value 1</option>
                 <option>Value 2</option>
@@ -340,14 +358,13 @@
         </div>
     </div>
     
-    <!-- Frame 7: Phòng ban -->
     <div class="frame frame-7">
         <div class="input-container">
             <div class="username-container">
                 <span class="username-text">Phòng ban</span>
                 <span class="required">*</span>
             </div>
-            <select class="input-select" id="department">
+            <select class="input-select" id="department" >
                 <option></option>
                 <option>Value 1</option>
                 <option>Value 2</option>
@@ -362,8 +379,14 @@
     </div>
 
     <script>
+
+        document.querySelector('.date-icon').addEventListener('click', function() {
+            document.getElementById('dob').showPicker();
+        });
+
         let formData = []; 
-        // Xử lý nút "Tiếp theo"
+
+        // Lắng nghe sự kiện click trên nút "Tiếp theo"
         document.querySelector('.next-btn').addEventListener('click', function() {
             const fields = [
                 document.getElementById('username'),
@@ -376,26 +399,21 @@
             ];
 
             fields.forEach(function(field) {
-                if (field.value.trim() === '') {
-                    field.style.backgroundColor = 'rgba(204, 204, 204, 0.5)';
-                } else {
-                    field.style.backgroundColor = ''; 
-                }
+                field.disabled = true; 
+                field.style.backgroundColor = 'rgba(204, 204, 204, 0.5)'; 
             });
 
-            // Lưu lại dữ liệu đã nhập (ví dụ lưu vào biến)
             formData = fields.map(field => field.value);
-    
-            // Chuyển đổi các nút "Tiếp theo" và "Xóa trống" thành "Lưu lại" và "Quay lại"
+
+            // Chuyển nút "Tiếp theo" thành "Lưu lại" và "Xóa trống" thành "Quay lại"
             document.querySelector('.next-btn').textContent = 'Lưu lại';
             document.querySelector('.clear-btn').textContent = 'Quay lại';
-    
-            // Sự kiện khi nhấn "Quay lại"
+
+            // Lắng nghe sự kiện click trên nút "Quay lại"
             document.querySelector('.clear-btn').addEventListener('click', function() {
-                // Chuyển lại các nút về trạng thái ban đầu (Tiếp theo, Xóa trống)
                 document.querySelector('.next-btn').textContent = 'Tiếp theo';
                 document.querySelector('.clear-btn').textContent = 'Xóa trống';
-
+                
                 const fields = [
                     document.getElementById('username'),
                     document.getElementById('fullname'),
@@ -406,20 +424,16 @@
                     document.getElementById('department')
                 ];
 
-                fields.forEach(function(field) {
-                    if (field.value.trim() === '') {
-                        field.style.backgroundColor = '';
-                    } else {
-                        field.style.backgroundColor = ''; 
-                    }
-                });
-    
-                // Giữ dữ liệu đã nhập lại vào các trường
+
                 fields.forEach((field, index) => {
                     field.value = formData[index]; 
                 });
 
-                // Xử lý nút "Xóa trống" sau khi quay lại
+                fields.forEach(function(field) {
+                    field.disabled = false; 
+                    field.style.backgroundColor = ''; 
+                });
+
                 document.querySelector('.clear-btn').addEventListener('click', function() {
                     if (document.querySelector('.clear-btn').textContent === 'Xóa trống') {
                         fields.forEach(function(field) {
@@ -428,9 +442,11 @@
                         });
                     }
                 });
+
             });
+
         });
-    
+
         // Xử lý nút "Xóa trống"
         document.querySelector('.clear-btn').addEventListener('click', function() {
             // Nếu đang ở trạng thái "Xóa trống", thực hiện xóa dữ liệu
@@ -451,7 +467,7 @@
                 });
             }
         });
-
+        
     </script>
 
 </body>
