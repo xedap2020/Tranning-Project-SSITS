@@ -98,7 +98,7 @@
             font-weight: 700;
         }
 
-        .add-user-text {
+        .edit-user-text {
             width: 144px;
             height: 17px;
             position: absolute;
@@ -251,7 +251,11 @@
             background-color: rgba(226, 0, 92, 0.6);
             transition: background-color 0.3s;
         }
-
+        
+        #username {
+            background: rgba(223, 223, 223, 0.5); 
+        }
+        
     </style>
 </head>
 <body>
@@ -269,13 +273,15 @@
         </ul>
     </div>
 
+    <div class="edit-user-text">Chỉnh sửa người dùng</div>
+
     <div class="frame frame-1">
         <div class="input-container">
             <div class="username-container">
                 <span class="username-text">Tên đăng nhập</span>
                 <span class="required">*</span>
             </div>
-            <input type="text" class="input-text" id="username"> 
+            <input type="text" class="input-text" id="username" readonly> 
         </div>
     </div>
     
