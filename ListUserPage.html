@@ -374,14 +374,13 @@
     background: rgba(255, 255, 255, 1);
     cursor: pointer;
     appearance: none; 
-    display: block; /* Chỉnh từ flex thành block */
-    margin: auto; /* Căn giữa */
+    display: block;
+    margin: auto;
   }
 
   /* Khi checkbox được chọn */
   .custom-checkbox:checked {
       background: rgba(255, 255, 255, 1);; 
-      border-color: rgba(255, 255, 255, 1);; 
       position: relative;
   }
 
@@ -536,7 +535,7 @@
     <table class="custom-table">
         <thead>
             <tr>
-                <th><input type="checkbox" class="custom-checkbox"></th>
+                <th><input type="checkbox" class="custom-checkbox" id="selectAll"></th>
                 <th>Mã người dùng</th>
                 <th>Tên người dùng</th>
                 <th>Ngày lập</th>
@@ -546,7 +545,7 @@
         </thead>
         <tbody>
             <tr>
-                <td><input type="checkbox" class="custom-checkbox"></td>
+                <td><input type="checkbox" class="custom-checkbox user-checkbox"></td>
                 <td>0001</td>
                 <td>Nguyễn Văn A</td>
                 <td>2025-01-01</td>
@@ -559,7 +558,7 @@
               </td>
             </tr>
             <tr>
-              <td><input type="checkbox" class="custom-checkbox"></td>
+              <td><input type="checkbox" class="custom-checkbox user-checkbox"></td>
               <td>0001</td>
               <td>Nguyễn Văn A</td>
               <td>2025-01-01</td>
@@ -572,7 +571,7 @@
               </td>
             </tr>
             <tr>
-              <td><input type="checkbox" class="custom-checkbox"></td>
+              <td><input type="checkbox" class="custom-checkbox user-checkbox"></td>
               <td>0001</td>
               <td>Nguyễn Văn A</td>
               <td>2025-01-01</td>
@@ -585,7 +584,7 @@
               </td>
             </tr>
             <tr>
-              <td><input type="checkbox" class="custom-checkbox"></td>
+              <td><input type="checkbox" class="custom-checkbox user-checkbox"></td>
               <td>0001</td>
               <td>Nguyễn Văn A</td>
               <td>2025-01-01</td>
@@ -598,7 +597,7 @@
               </td>
             </tr>
             <tr>
-              <td><input type="checkbox" class="custom-checkbox"></td>
+              <td><input type="checkbox" class="custom-checkbox user-checkbox"></td>
               <td>0001</td>
               <td>Nguyễn Văn A</td>
               <td>2025-01-01</td>
@@ -611,7 +610,7 @@
               </td>
             </tr>
             <tr>
-              <td><input type="checkbox" class="custom-checkbox"></td>
+              <td><input type="checkbox" class="custom-checkbox user-checkbox"></td>
               <td>0001</td>
               <td>Nguyễn Văn A</td>
               <td>2025-01-01</td>
@@ -624,7 +623,7 @@
               </td>
             </tr>
             <tr>
-              <td><input type="checkbox" class="custom-checkbox"></td>
+              <td><input type="checkbox" class="custom-checkbox user-checkbox"></td>
               <td>0001</td>
               <td>Nguyễn Văn A</td>
               <td>2025-01-01</td>
@@ -637,7 +636,7 @@
               </td>
             </tr>
             <tr>
-              <td><input type="checkbox" class="custom-checkbox"></td>
+              <td><input type="checkbox" class="custom-checkbox user-checkbox"></td>
               <td>0001</td>
               <td>Nguyễn Văn A</td>
               <td>2025-01-01</td>
@@ -650,7 +649,7 @@
               </td>
             </tr>
             <tr>
-              <td><input type="checkbox" class="custom-checkbox"></td>
+              <td><input type="checkbox" class="custom-checkbox user-checkbox"></td>
               <td>0001</td>
               <td>Nguyễn Văn A</td>
               <td>2025-01-01</td>
@@ -663,7 +662,7 @@
               </td>
             </tr>
             <tr>
-              <td><input type="checkbox" class="custom-checkbox"></td>
+              <td><input type="checkbox" class="custom-checkbox user-checkbox"></td>
               <td>0001</td>
               <td>Nguyễn Văn A</td>
               <td>2025-01-01</td>
@@ -676,7 +675,7 @@
               </td>
             </tr>
             <tr>
-              <td><input type="checkbox" class="custom-checkbox"></td>
+              <td><input type="checkbox" class="custom-checkbox user-checkbox"></td>
               <td>0001</td>
               <td>Nguyễn Văn A</td>
               <td>2025-01-01</td>
@@ -689,7 +688,7 @@
               </td>
             </tr>
             <tr>
-              <td><input type="checkbox" class="custom-checkbox"></td>
+              <td><input type="checkbox" class="custom-checkbox user-checkbox"></td>
               <td>0001</td>
               <td>Nguyễn Văn A</td>
               <td>2025-01-01</td>
@@ -702,7 +701,7 @@
               </td>
             </tr>
             <tr>
-              <td><input type="checkbox" class="custom-checkbox"></td>
+              <td><input type="checkbox" class="custom-checkbox user-checkbox"></td>
               <td>0001</td>
               <td>Nguyễn Văn A</td>
               <td>2025-01-01</td>
@@ -715,7 +714,7 @@
               </td>
             </tr>
             <tr>
-              <td><input type="checkbox" class="custom-checkbox"></td>
+              <td><input type="checkbox" class="custom-checkbox user-checkbox"></td>
               <td>0001</td>
               <td>Nguyễn Văn A</td>
               <td>2025-01-01</td>
@@ -728,7 +727,7 @@
               </td>
             </tr>
             <tr>
-              <td><input type="checkbox" class="custom-checkbox"></td>
+              <td><input type="checkbox" class="custom-checkbox user-checkbox"></td>
               <td>0001</td>
               <td>Nguyễn Văn A</td>
               <td>2025-01-01</td>
@@ -741,7 +740,7 @@
               </td>
             </tr>
             <tr>
-              <td><input type="checkbox" class="custom-checkbox"></td>
+              <td><input type="checkbox" class="custom-checkbox user-checkbox"></td>
               <td>0001</td>
               <td>Nguyễn Văn A</td>
               <td>2025-01-01</td>
@@ -771,6 +770,29 @@
         </tr>
     </table>
   </div>
+
+  <script>
+    // Lấy checkbox đầu tiên (selectAll) và tất cả các checkbox trong bảng
+    const selectAllCheckbox = document.getElementById('selectAll');
+    const userCheckboxes = document.querySelectorAll('.user-checkbox');
+
+    // Khi checkbox đầu tiên (selectAll) thay đổi
+    selectAllCheckbox.addEventListener('change', function() {
+        // Nếu checkbox đầu tiên được chọn, chọn tất cả checkbox trong các hàng
+        userCheckboxes.forEach(checkbox => {
+            checkbox.checked = selectAllCheckbox.checked;
+        });
+    });
+
+    // Khi bất kỳ checkbox trong các hàng thay đổi, kiểm tra lại xem có tất cả được chọn không
+    userCheckboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', function() {
+            // Kiểm tra xem có tất cả checkbox trong các hàng được chọn không
+            const allChecked = Array.from(userCheckboxes).every(checkbox => checkbox.checked);
+            selectAllCheckbox.checked = allChecked;
+        });
+    });
+  </script>
 
 </body>
 </html>

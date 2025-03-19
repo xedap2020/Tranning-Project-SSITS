@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trang 1920x1080</title>
+    <title>Màn hình thêm mới người dùng</title>
     <style>
         /* Định dạng toàn bộ trang */
         body {
@@ -202,6 +202,56 @@
             cursor: pointer;
         }
 
+        .footer {
+            width: 1920px;
+            height: 114px;
+            top: 780px;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .next-btn, .clear-btn {
+            width: 220px;
+            height: 50px;
+            border-radius: 4px;
+            padding-top: 4px;
+            padding-right: 24px;
+            padding-bottom: 4px;
+            padding-left: 24px;
+            border-width: 1px;
+            font-size: 16px;
+            font-weight: 400;
+            transform: translateX(-330px); 
+        }
+
+        .next-btn {
+            background:  rgba(0, 126, 198, 1);
+            border: 1px solid rgba(204, 204, 204, 1);
+            color: white;
+        }
+
+        .clear-btn {
+            background: rgba(226, 0, 92, 1);
+            border: 1px solid rgba(204, 204, 204, 1);
+            color: white;
+        }
+
+        /* Thêm hiệu ứng hover cho các nút */
+        .next-btn:hover {
+            background-color: rgba(0, 126, 198, 0.6);
+            transition: background-color 0.3s;
+        }
+
+        .clear-btn:hover {
+            background-color: rgba(226, 0, 92, 0.6);
+            transition: background-color 0.3s;
+        }
+
     </style>
 </head>
 <body>
@@ -292,6 +342,11 @@
                 <option>Value</option>
             </select>
         </div>
+    </div>
+
+    <div class="footer">
+        <button class="next-btn">Tiếp theo</button>
+        <button class="clear-btn">Xóa trống</button>
     </div>
 
 </body>
