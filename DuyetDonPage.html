@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh sách người dùng</title>
+    <style>
+
+        body {
+            width: 1920px;
+            height: 1080px;
+            background: rgba(255, 255, 255, 1);
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            position: fixed;
+        }
+
+        .header {
+            width: 1920px;
+            height: 75px;
+            background: rgba(0, 126, 198, 1);
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+
+        .header-text {
+            width: 158px;
+            height: 48px;
+            position: absolute;
+            top: 8px;
+            left: 26px;
+            font-weight: 700;
+            font-size: 40px;
+            line-height: 100%;
+            letter-spacing: 0%;
+            color: rgba(255, 255, 255, 1); 
+        }
+
+        .sub-header-text {
+            width: 240px;
+            height: 29px;
+            position: absolute;
+            top: 26px;
+            left: 233px;
+            font-weight: 400;
+            font-size: 24px;
+            line-height: 100%;
+            letter-spacing: 0%;
+            color: rgba(255, 255, 255, 1);
+        }
+
+        .sidebar {
+            width: 269px;
+            height: 1005px;
+            min-width: 112px;
+            max-width: 280px;
+            position: fixed;
+            top: 76px;
+            left: 0;
+            background: rgba(255, 255, 255, 1);
+            border-radius: 4px;
+            padding-top: 8px;
+            padding-bottom: 8px;
+            box-shadow: 0px 2px 6px 2px rgba(0, 0, 0, 0.15), 
+                        0px 1px 2px 0px rgba(0, 0, 0, 0.3);
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar li {
+            height: 56px;
+            padding-left: 20px;
+            display: flex;
+            align-items: center;
+            font-size: 18px;
+            font-weight: 700;
+            color: black;
+            cursor: pointer;
+        }
+
+        .sidebar li.active {
+            background-color: rgba(0, 126, 198, 1);
+            color: white;
+            font-weight: 700;
+        }
+
+        .new-order-text {
+            width: 95px;
+            height: 17px;
+            position: absolute;
+            top: 96px;
+            left: 296px;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 100%;
+            letter-spacing: 0%;
+            color: rgba(0, 0, 0, 1);
+        }
+
+        .frame-1 {
+            width: 613px;
+            height: 40px;
+            position: absolute;
+            top: 171px;
+            left: 389px;
+            background-color: rgba(255, 255, 255, 1);
+        }
+
+        .frame-2 {
+            width: 613px;
+            height: 100px;
+            position: absolute;
+            top: 233px;
+            left: 389px;
+            background-color: rgba(255, 255, 255, 1);
+        }
+
+        .frame-3 {
+            width: 613px;
+            height: 62px;
+            position: absolute;
+            top: 355px;
+            left: 389px;
+            background-color: rgba(255, 255, 255, 1);
+        }
+
+        .frame-4 {
+            width: 613px;
+            height: 62px;
+            position: absolute;
+            top: 424px;
+            left: 389px;
+            background-color: rgba(255, 255, 255, 1);
+        }
+
+        .frame-5 {
+            width: 613px;
+            height: 40px;
+            position: absolute;
+            top: 493px;
+            left: 387px;
+            background-color: rgba(255, 255, 255, 1);
+        }
+
+        .frame-6 {
+            width: 613px;
+            height: 40px;
+            position: absolute;
+            top: 555px;
+            left: 387px;
+            background-color: rgba(255, 255, 255, 1);
+        }
+
+        .title-text {
+            width: 100px;
+            height: 17px;
+            position: absolute;
+            top: 10px;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 100%;
+            letter-spacing: 0%;
+            color: rgba(0, 0, 0, 1);
+        }
+
+        .input-text-1 {
+            width: 480px;
+            height: 38px;
+            position: absolute;
+            left: 129px; 
+            background-color: rgba(255, 255, 255, 0.5); 
+            border-radius: 4px; 
+            border: 1px solid rgba(204, 204, 204, 1); 
+        }
+
+        .input-text-2 {
+            width: 480px;
+            height: 94px;
+            position: absolute;
+            left: 129px;
+            background-color: rgba(255, 255, 255, 0.5); 
+            border-radius: 4px; 
+            border: 1px solid rgba(204, 204, 204, 1); 
+        }
+
+        .input-text-3 {
+            width: 240px;
+            height: 40px;
+            position: absolute;
+            top: 2px;
+            left: 129px;
+            background-color: rgba(255, 255, 255, 0.5); 
+            border-radius: 4px; 
+            border: 1px solid rgba(204, 204, 204, 1); 
+            font-size: 14px;
+            padding-left: 10px;
+        }
+
+        .input-text-4 {
+            width: 189px;
+            height: 40px;
+            position: absolute;
+            left: 123px;
+            top: 0px;
+            margin-left: 8px;
+            border-radius: 4px;
+            border: 1px solid rgba(204, 204, 204, 1);
+            background: rgba(255, 255, 255, 0.5);
+            padding-left: 10px;
+            font-size: 14px;
+            outline: none;
+        }
+
+        .input-text-5 {
+            width: 189px;
+            height: 40px;
+            position: absolute;
+            left: 123px;
+            top: 0px;
+            margin-left: 8px;
+            border-radius: 4px;
+            border: 1px solid rgba(204, 204, 204, 1);
+            background: rgba(255, 255, 255, 0.5);
+            padding-left: 10px;
+            font-size: 14px;
+            outline: none;
+        }
+
+        .footer {
+            width: 1920px;
+            height: 114px;
+            top: 780px;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .next-btn, .clear-btn {
+            width: 220px;
+            height: 50px;
+            border-radius: 4px;
+            padding-top: 4px;
+            padding-right: 24px;
+            padding-bottom: 4px;
+            padding-left: 24px;
+            border-width: 1px;
+            font-size: 16px;
+            font-weight: 400;
+            transform: translateX(-330px); 
+        }
+
+        .next-btn {
+            background:  rgba(0, 126, 198, 1);
+            border: 1px solid rgba(204, 204, 204, 1);
+            color: white;
+        }
+
+        .clear-btn {
+            background: rgba(226, 0, 92, 1);
+            border: 1px solid rgba(204, 204, 204, 1);
+            color: white;
+        }
+
+  </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-text">Sanshin</div>
+        <div class="sub-header-text">Hệ thống quản lý đơn</div>
+    </div>
+
+    <div class="sidebar">
+        <ul>
+            <li>Dashboard</li>
+            <li class="active">Quản lý người dùng</li>
+            <li>Quản lý đơn</li>
+            <li>Đăng xuất</li>
+        </ul>
+    </div>
+
+    <div class="new-order-text">Duyệt đơn</div>
+
+    <div class="frame-1">
+        <div class="title-text">
+            Tiêu đề
+        </div>
+        <input type="text" class="input-text-1" id="title">
+    </div>
+    
+    <div class="frame-2">
+        <div class="title-text">
+            Nội dung
+        </div>
+        <input type="text" class="input-text-2" id="content">
+    </div>
+    
+    <div class="frame-3">
+        <div class="title-text">
+            Loại đơn
+        </div>
+        <input type="text" class="input-text-3" id="typeDon">
+    </div>
+    
+    <div class="frame-4">
+        <div class="title-text">
+            Ngày bắt đầu
+        </div>
+        <input type="text" class="input-text-4" id="dob-1">
+    </div>
+    
+    <div class="frame-5">
+        <div class="title-text">
+            Ngày kết thúc
+        </div>
+        <input type="text" class="input-text-5" id="dob-2">
+    </div>
+    
+    <div class="frame-6">
+        <div class="title-text">
+            Đính kèm
+        </div>
+        <!-- <input type="text" class="input-text-6" id="imageUpload"> -->
+    </div>
+    
+
+    <div class="footer">
+        <button class="next-btn">Duyệt đơn</button>
+        <button class="clear-btn">Hủy đơn</button>
+    </div>
+
+</body>
+</html>

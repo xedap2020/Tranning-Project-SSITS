@@ -427,7 +427,7 @@
 
     <div class="frame-7">
         <div class="title-text">
-            Tải ảnh lên <span>*</span>
+            Đính kèm <span>*</span>
         </div>
 
         <div class="input-file-wrapper">
@@ -460,6 +460,99 @@
             var fileNameDisplay = input.nextElementSibling.nextElementSibling;
             fileNameDisplay.textContent = fileName; 
         }
+
+        let formData = []; 
+
+        // Lắng nghe sự kiện click trên nút "Tiếp theo"
+        document.querySelector('.next-btn').addEventListener('click', function() {
+            const fields = [
+                document.getElementById('title'),
+                document.getElementById('content'),
+                document.getElementById('userAccept'),
+                document.getElementById('typeDon'),
+                document.getElementById('dob-1'),
+                document.getElementById('dob-2'),
+                document.getElementById('imageUpload')
+            ];
+
+            fields.forEach(function(field) {
+                if (field.id !== 'imageUpload') {
+                    field.disabled = true;
+                    field.style.backgroundColor = 'rgba(204, 204, 204, 0.5)';
+                }
+                else 
+                {
+                    field.disabled = true; 
+                    field.style.backgroundColor = 'transparent';
+                    field.style.color = 'rgba(0, 170, 255, 1)'; 
+                    field.style.border = 'none'; 
+                }
+            });
+
+            formData = fields.map(field => field.value);
+
+            // Chuyển nút "Tiếp theo" thành "Lưu lại" và "Xóa trống" thành "Quay lại"
+            document.querySelector('.next-btn').textContent = 'Lưu lại';
+            document.querySelector('.clear-btn').textContent = 'Quay lại';
+
+            // Lắng nghe sự kiện click trên nút "Quay lại"
+            document.querySelector('.clear-btn').addEventListener('click', function() {
+                document.querySelector('.next-btn').textContent = 'Tiếp theo';
+                document.querySelector('.clear-btn').textContent = 'Xóa trống';
+                
+                const fields = [
+                    document.getElementById('title'),
+                    document.getElementById('content'),
+                    document.getElementById('userAccept'),
+                    document.getElementById('typeDon'),
+                    document.getElementById('dob-1'),
+                    document.getElementById('dob-2'),
+                    document.getElementById('imageUpload')
+                ];
+
+
+                fields.forEach((field, index) => {
+                    field.value = formData[index]; 
+                });
+
+                fields.forEach(function(field) {
+                    field.disabled = false; 
+                    field.style.backgroundColor = ''; 
+                });
+
+                document.querySelector('.clear-btn').addEventListener('click', function() {
+                    if (document.querySelector('.clear-btn').textContent === 'Xóa trống') {
+                        fields.forEach(function(field) {
+                            field.value = ''; 
+                            field.style.backgroundColor = ''; 
+                        });
+                    }
+                });
+
+            });
+
+        });
+
+        // Xử lý nút "Xóa trống"
+        document.querySelector('.clear-btn').addEventListener('click', function() {
+            // Nếu đang ở trạng thái "Xóa trống", thực hiện xóa dữ liệu
+            if (document.querySelector('.clear-btn').textContent === 'Xóa trống') {
+                const fields = [
+                    document.getElementById('title'),
+                    document.getElementById('content'),
+                    document.getElementById('userAccept'),
+                    document.getElementById('typeDon'),
+                    document.getElementById('dob-1'),
+                    document.getElementById('dob-2'),
+                    document.getElementById('imageUpload')
+                ];
+
+                fields.forEach(function(field) {
+                    field.value = ''; 
+                    field.style.backgroundColor = ''; 
+                });
+            }
+        });
 
     </script>
 </html>
